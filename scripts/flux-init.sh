@@ -12,10 +12,15 @@ if [[ ! -x "$(command -v helm)" ]]; then
     exit 1
 fi
 
+git_ssh_url() {
+    # shellcheck disable=SC2001
+   git config --get remote.origin.url | sed -e 's#^https://github.com/#git@github.com:#'
+}
+
 REPO_GIT_INIT_PATHS="istio"
 REPO_ROOT=$(git rev-parse --show-toplevel)
-REPO_URL=${1:-git@github.com:angus-systems/gitops.git}
-REPO_BRANCH=master
+REPO_URL=${git_ssh_url}
+REPO_BRANCH=$(git symbolic-ref --short HEAD)
 
 helm repo add fluxcd https://charts.fluxcd.io
 
