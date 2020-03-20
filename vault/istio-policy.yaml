@@ -5,22 +5,22 @@ metadata:
   name: vault-secrets-webhook
   namespace: vault-system
 spec:
-  selector:
-      matchLabels:
-        app: vault-secrets-webhook
+  # selector:
+  #     matchLabels:
+  #       app: vault-secrets-webhook
   mtls:
     mode: PERMISSIVE
----
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  name: vault-secrets-webhook
-  namespace: vault-system
-spec:
-  host: vault-secrets-webhook.vault-system.svc.cluster.local
-  trafficPolicy:
-    tls:
-      mode: DISABLE
+# ---
+# apiVersion: networking.istio.io/v1alpha3
+# kind: DestinationRule
+# metadata:
+#   name: vault-secrets-webhook
+#   namespace: vault-system
+# spec:
+#   host: vault-secrets-webhook.vault-system.svc.cluster.local
+#   trafficPolicy:
+#     tls:
+#       mode: DISABLE
 ---
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
