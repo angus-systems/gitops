@@ -4,6 +4,7 @@ kind: Namespace
 metadata:
   name: vault-system
   labels:
+    name: vault-system
     istio-injection: enabled
 ---
 apiVersion: v1
