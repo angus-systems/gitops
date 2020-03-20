@@ -20,7 +20,7 @@ spec:
   host: vault-secrets-webhook.vault-system.svc.cluster.local
   trafficPolicy:
     tls:
-      mode: ISTIO_MUTUAL
+      mode: DISABLE
 ---
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
