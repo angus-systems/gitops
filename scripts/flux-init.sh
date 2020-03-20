@@ -25,7 +25,7 @@ REPO_BRANCH=$(git symbolic-ref --short HEAD)
 helm repo add fluxcd https://charts.fluxcd.io
 
 echo ">>> Installing Flux for ${REPO_URL} only watching istio paths"
-kubectl create ns flux || true
+kubectl create ns fluxcd || true
 helm upgrade -i flux fluxcd/flux --wait \
 --set git.url=${REPO_URL} \
 --set git.branch=${REPO_BRANCH} \
