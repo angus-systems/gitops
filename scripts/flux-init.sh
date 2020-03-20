@@ -19,7 +19,7 @@ git_ssh_url() {
 
 REPO_GIT_INIT_PATHS="istio"
 REPO_ROOT=$(git rev-parse --show-toplevel)
-REPO_URL=${git_ssh_url}
+REPO_URL=$(git_ssh_url)
 REPO_BRANCH=$(git symbolic-ref --short HEAD)
 
 helm repo add fluxcd https://charts.fluxcd.io
